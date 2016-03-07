@@ -18,12 +18,13 @@ public class SwethaProject {
     public static void main(String[] args){
         try{
             ClassPool cp = ClassPool.getDefault();
-        CtClass cc = cp.get("swethaproject.Hello");
-        CtMethod m = cc.getDeclaredMethod("say");
-        m.insertBefore("{ int x=0; System.out.println(\"Vinay loves swetha more than ever\"); }");
-        Class c = cc.toClass();
-        Hello h = (Hello)c.newInstance();
-        h.say();
+            CtClass cc = cp.get("swethaproject.Hello");
+            CtMethod m = cc.getDeclaredMethod("say");
+            m.insertBefore("{ int x=0; "
+                    + "System.out.println(\"Vinay loves swetha more than ever, muuuuah <3\"); }");
+            Class c = cc.toClass();
+            Hello h = (Hello)c.newInstance();
+            h.say();
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
